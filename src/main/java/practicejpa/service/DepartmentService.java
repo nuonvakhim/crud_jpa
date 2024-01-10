@@ -1,13 +1,19 @@
 package practicejpa.service;
 
-import practicejpa.payload.Department;
-import practicejpa.payload.RequestDepartment;
+import practicejpa.domain.department.Department;
+import practicejpa.payload.department.RequestDepartment;
+
+import java.util.List;
 
 public interface DepartmentService {
 
-    Department saveDepartment(RequestDepartment payload);
+    Department createDepartment(RequestDepartment payload);
 
     void deleteDepartment(Long id);
 
     Department updateDepartment(RequestDepartment payload, Long deppartmentId);
+
+    List<Department> fetchDepartmentList();
+
+    Department fetchById(Long departmentId);
 }
