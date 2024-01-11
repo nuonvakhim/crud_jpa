@@ -11,7 +11,8 @@ import practicejpa.service.DepartmentService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/departments")
+@CrossOrigin
+@RequestMapping("/api/v1/department")
 
 public class DepartmentController {
 
@@ -31,12 +32,12 @@ public class DepartmentController {
         return departmentService.createDepartment(payload);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteDepartment(@PathVariable Long id) throws Exception{
          departmentService.deleteDepartment(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public Department updateDepartment(@PathVariable Long id, @RequestBody @Valid RequestDepartment payload){
         return departmentService.updateDepartment(payload, id);
     }

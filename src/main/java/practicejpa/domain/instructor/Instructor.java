@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import practicejpa.domain.department.Department;
+import practicejpa.payload.instructor.InstructorResponse;
 import practicejpa.payload.student.StudentResponse;
 
 @Entity
@@ -22,8 +23,8 @@ public class Instructor {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
-    public StudentResponse toInstructorResponse() {
-        return new StudentResponse(instructorId, instructorName, department.departmentRespone());
+    public InstructorResponse toInstructorResponse() {
+        return new InstructorResponse(instructorId, instructorName, department.departmentRespone());
     }
 
     @Builder

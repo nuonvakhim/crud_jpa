@@ -13,7 +13,6 @@ import practicejpa.payload.department.DepartmentRespone;
 @AllArgsConstructor
 public class InstructorResponse {
     private Long instructorId;
-
     private String instructorName;
     private DepartmentRespone department;
 

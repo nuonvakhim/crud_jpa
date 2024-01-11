@@ -9,6 +9,7 @@ import practicejpa.payload.student.StudentRequest;
 import practicejpa.service.StudentService;
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/student")
 public class StudentController {
@@ -23,6 +24,12 @@ public class StudentController {
     public Object fetchStudent(){
         return studentService.getStudents();
     }
+
+    @GetMapping("/{id}")
+    public Object getById(@PathVariable Long id){
+        return studentService.getById(id);
+    }
+
     @PutMapping("/{id}")
     public Student updateStudent(@PathVariable("id") Long student_id, @RequestBody @Valid StudentRequest payload) {
         return studentService.updateStudent(payload, student_id);
@@ -33,5 +40,6 @@ public class StudentController {
         studentService.deleteStudent(id);
 
     }
+
 
 }
