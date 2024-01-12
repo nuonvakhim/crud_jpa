@@ -12,32 +12,32 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v1/department")
+@RequestMapping("/api/v1")
 
 public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
-    @GetMapping
+    @GetMapping("/department")
     public List<Department> fetchDepartmentList(){
 
         return departmentService.fetchDepartmentList();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/department/{id}")
     public Department fetchById(@PathVariable("id") Long departmentId ){
         return departmentService.fetchById(departmentId);
     }
-    @PostMapping
+    @PostMapping("/department")
     public Department createDepartment(@RequestBody RequestDepartment payload){
         return departmentService.createDepartment(payload);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/department/{id}")
     public void deleteDepartment(@PathVariable Long id) throws Exception{
          departmentService.deleteDepartment(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/department/{id}")
     public Department updateDepartment(@PathVariable Long id, @RequestBody @Valid RequestDepartment payload){
         return departmentService.updateDepartment(payload, id);
     }

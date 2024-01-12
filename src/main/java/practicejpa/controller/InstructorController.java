@@ -13,31 +13,32 @@ import practicejpa.service.InstructorService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/instructor")
+@CrossOrigin
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class InstructorController
 {
     private final InstructorService instructorService;
 
-    @GetMapping
+    @GetMapping("/instructor")
     public Object getAll(){
         return instructorService.getAll();
 
     }
-    @GetMapping("/{id}")
+    @GetMapping("/instructor/{id}")
     public Object getByID(@PathVariable Long id){
         return instructorService.getById(id);
     }
-    @PostMapping
+    @PostMapping("/instructor")
     public Instructor createInstructor(@RequestBody @Valid InstructorRequest payload){
         return instructorService.createInstructor(payload);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/instructor/{id}")
     public Instructor updateInstructor(@PathVariable Long id, @RequestBody @Valid InstructorRequest payload){
         return instructorService.updateInstructor(id, payload);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/instructor/{id}")
     public void deleteInstructor(@PathVariable Long id) throws  Exception{
         instructorService.deleteInstructor(id);
     }

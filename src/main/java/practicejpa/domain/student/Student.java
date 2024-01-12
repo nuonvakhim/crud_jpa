@@ -19,7 +19,7 @@ public class Student {
 
     private String studentName;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST , fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 

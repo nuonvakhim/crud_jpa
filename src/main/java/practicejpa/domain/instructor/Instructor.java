@@ -20,7 +20,7 @@ public class Instructor {
     private Long instructorId;
     private String instructorName;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
     public InstructorResponse toInstructorResponse() {
