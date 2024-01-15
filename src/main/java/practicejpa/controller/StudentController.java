@@ -15,7 +15,6 @@ import practicejpa.service.StudentService;
 public class StudentController {
     private final StudentService studentService;
 
-
     @PostMapping("/student")
     public Student createStudent(@RequestBody @Valid StudentRequest payload){
         return studentService.createStudent(payload);
