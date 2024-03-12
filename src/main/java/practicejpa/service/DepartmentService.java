@@ -11,7 +11,7 @@ public interface DepartmentService {
 
     void deleteDepartment(Long id);
 
-    Department updateDepartment(RequestDepartment payload, Long deppartmentId);
+    Department updateDepartment(RequestDepartment payload, Long departmentId);
 
     List<Department> fetchDepartmentList();
 

@@ -1,33 +1,41 @@
 package practicejpa.domain.department;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import practicejpa.payload.department.DepartmentRespone;
+import practicejpa.payload.department.DepartmentResponse;
 
 import java.io.Serializable;
 
 @Entity
 @Data
+@Table( name = "tb_department")
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class Department implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long departmentId;
+    @Column(name = "id")
+    private Long dpId;
 
-    private String departmentName;
-    private String departmentAddress;
-    private String departmentCode;
+    @Column(name = "dp_name")
+    private String dpName;
 
-    public DepartmentRespone departmentRespone(){
-        return new DepartmentRespone( departmentId,departmentName,departmentAddress,departmentCode);
+    @Column(name = "dp_addr")
+    private String dpAddr;
+
+    @Column(name = "dp_code")
+    private String dpCode;
+
+    public DepartmentResponse departmentResponse(){
+        return new DepartmentResponse( dpId, dpName, dpAddr ,dpCode);
     }
-
+    @Builder
+    public Department(Long dpId, String dpName, String dpAddr, String dpCode) {
+        this.dpId = dpId;
+        this.dpName = dpName;
+        this.dpAddr = dpAddr;
+        this.dpCode = dpCode;
+    }
 }

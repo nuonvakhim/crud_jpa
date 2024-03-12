@@ -6,7 +6,7 @@ import practicejpa.domain.department.Department;
 import practicejpa.payload.student.StudentResponse;
 
 @Entity
-@Table(name = "student")
+@Table(name = "tb_student")
 @NoArgsConstructor
 @Setter
 @Getter
@@ -15,22 +15,43 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentId;
+    @Column(name = "id")
+    private Long stuId;
 
-    private String studentName;
+    @Column(name = "stf_name")
+    private String stfName;
+
+    @Column(name = "stl_name")
+    private String stlName;
+
+    @Column(name = "st_course")
+    private String stCourse;
+
+    @Column(name = "st_cont")
+    private String stContact;
+
+    @Column(name = "st_bd")
+    private String stBirthdate;
+
+    @Column(name = "st_gen")
+    private String stGender;
 
     @ManyToOne(cascade = CascadeType.PERSIST , fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "id")
     private Department department;
 
-    public StudentResponse toStudentRespones() {
-        return new StudentResponse(studentId, studentName, department.departmentRespone());
+    public StudentResponse toStudentResponse() {
+        return new StudentResponse(stuId, stfName,stlName ,stCourse, stContact, stBirthdate,stGender, department.departmentResponse());
     }
-
-    @Builder
-    public Student(Long studentId, String studentName, Department department) {
-        this.studentId = studentId;
-        this.studentName = studentName;
+@Builder
+    public Student(Long stuId, String stfName, String stlName, String stCourse, String stContact, String stBirthdate, String stGender, Department department) {
+        this.stuId = stuId;
+        this.stfName = stfName;
+        this.stlName = stlName;
+        this.stCourse = stCourse;
+        this.stContact = stContact;
+        this.stBirthdate = stBirthdate;
+        this.stGender = stGender;
         this.department = department;
     }
 }

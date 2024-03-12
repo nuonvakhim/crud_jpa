@@ -18,9 +18,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department createDepartment(RequestDepartment payload) {
         var d = Department.builder()
-                .departmentAddress(payload.getDepartmentAddress())
-                .departmentName(payload.getDepartmentName())
-                .departmentCode(payload.getDepartmentCode())
+                .dpAddr(payload.getDpAddr())
+                .dpName(payload.getDpName())
+                .dpCode(payload.getDpCode())
                 .build();
         return departmentRepository.save(d);
     }
@@ -31,9 +31,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         var id = departmentRepository.findById(departmentId).orElseThrow(() -> new RuntimeException("id not found"));
 
-        id.setDepartmentAddress(payload.getDepartmentAddress());
-        id.setDepartmentName(payload.getDepartmentName());
-        id.setDepartmentCode(payload.getDepartmentCode());
+        id.setDpAddr(payload.getDpAddr());
+        id.setDpName(payload.getDpName());
+        id.setDpId(Long.valueOf(payload.getDpCode()));
         return  departmentRepository.save(id);
     }
 
@@ -51,7 +51,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public void deleteDepartment(Long id) {
 
         var findId = departmentRepository.findById(id).orElseThrow(() -> new RuntimeException("id not found!"));
-        departmentRepository.deleteById(findId.getDepartmentId());
+        departmentRepository.deleteById(findId.getDpId());
     }
 
 }

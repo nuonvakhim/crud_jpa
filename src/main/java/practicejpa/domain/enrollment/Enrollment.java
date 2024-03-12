@@ -7,7 +7,7 @@ import practicejpa.domain.course.Course;
 import practicejpa.domain.student.Student;
 
 @Entity
-@Table( name= "enrollment")
+@Table( name= "tb_enrollment")
 @Setter
 @Getter
 public class Enrollment {
@@ -16,7 +16,7 @@ public class Enrollment {
     private Long enrollmentId;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "id")
     private Student student;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

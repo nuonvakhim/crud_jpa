@@ -6,7 +6,7 @@ import lombok.Setter;
 import practicejpa.domain.department.Department;
 
 @Entity
-@Table(name="course")
+@Table(name="tb_course")
 @Setter
 @Getter
 public class Course {

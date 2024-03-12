@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import practicejpa.payload.department.DepartmentRespone;
+import practicejpa.payload.department.DepartmentResponse;
 
 
 @Data
@@ -14,6 +14,6 @@ import practicejpa.payload.department.DepartmentRespone;
 public class InstructorResponse {
     private Long instructorId;
     private String instructorName;
-    private DepartmentRespone department;
+    private DepartmentResponse department;
 
 }

@@ -1,7 +1,5 @@
 package practicejpa.service;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,7 +32,7 @@ public class StudentServiceImpl implements StudentService {
 //                .build();
 
         var stu = Student.builder()
-                .studentName(payload.getStudentName())
+                .stfName(payload.getStfName())
                 .department(departmentRepository.findById(payload.getDepartmentId()).get())
                 .build();
 
@@ -45,8 +43,9 @@ public class StudentServiceImpl implements StudentService {
     public List<StudentResponse> getStudents() {
         List<Student>students=studentRepository.findAll();
         return students.stream()
-                .map(Student::toStudentRespones)
+                .map(Student::toStudentResponse)
                 .collect(Collectors.toList());
+//        return null;
     }
 
     @Transactional
@@ -55,9 +54,9 @@ public class StudentServiceImpl implements StudentService {
         var id = studentRepository.findById(studentId).
             orElseThrow(()-> new RuntimeException("Not found this ID"));
 
-        id.setStudentName(payload.getStudentName());
+        id.setStfName(payload.getStfName());
         id.setDepartment(Department.builder()
-                        .departmentId(payload.getDepartmentId())
+                        .dpId(payload.getDepartmentId())
                         .build());
         return studentRepository.save(id);
     }
@@ -65,12 +64,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteStudent(Long id) {
         var delById = studentRepository.findById(id).orElseThrow(()->new RuntimeException("Id Not Found"));
-        studentRepository.deleteById(delById.getStudentId());
+        studentRepository.deleteById(delById.getStuId());
     }
 
     @Override
     public StudentResponse getById(Long id) {
-        return studentRepository.findById(id).orElseThrow(()->new RuntimeException("ID not Found")).toStudentRespones();
+//        return  null;
+        return studentRepository.findById(id).orElseThrow(()->new RuntimeException("ID not Found")).toStudentResponse();
     }
 
 }

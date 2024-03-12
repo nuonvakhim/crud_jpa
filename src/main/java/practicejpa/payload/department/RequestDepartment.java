@@ -14,18 +14,18 @@ import lombok.Setter;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class RequestDepartment {
     @NotBlank
-    private String departmentName;
+    private String dpName;
 
     @NotBlank
-    private String departmentAddress;
+    private String dpAddr;
 
     @NotBlank
-    private String departmentCode;
+    private String dpCode;
 
     @Builder
-    public RequestDepartment(String departmentName, String departmentAddress, String departmentCode) {
-        this.departmentName = departmentName;
-        this.departmentAddress = departmentAddress;
-        this.departmentCode = departmentCode;
+    public RequestDepartment(String dpName, String dpAddr, String dpCode) {
+        this.dpName = dpName;
+        this.dpAddr = dpAddr;
+        this.dpCode = dpCode;
     }
 }

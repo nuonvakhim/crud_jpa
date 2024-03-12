@@ -21,14 +21,13 @@ public class Instructor {
     private String instructorName;
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "id")
     private Department department;
-    public InstructorResponse toInstructorResponse() {
-        return new InstructorResponse(instructorId, instructorName, department.departmentRespone());
-    }
+//    public InstructorResponse toInstructorResponse() {
+//        return new InstructorResponse(instructorId, instructorName, department.departmentResponse());
+//    }
 
     @Builder
-
     public Instructor(Long instructorId, String instructorName, Department department) {
         this.instructorId = instructorId;
         this.instructorName = instructorName;

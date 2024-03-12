@@ -2,6 +2,7 @@ package practicejpa.payload.student;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -12,23 +13,29 @@ import lombok.*;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class StudentRequest {
 
-    @NotBlank
-    private String studentName;
+
+    private String stfName;
+
+    private String stlName;
+
+    private String stCourse;
+
+    private String stContact;
+
+    private String stBirthdate;
+
+    private String stGender;
     @NotNull
     private Long departmentId;
-//    @NotBlank
-//    private String departmentName;
-//    @NotBlank
-//    private String departmentAddress;
-//    @NotBlank
-//    private String departmentCode;
 
     @Builder
-    public StudentRequest(String studentName,Long departmentId, String departmentName, String departmentAddress, String departmentCode) {
-        this.studentName = studentName;
+    public StudentRequest(String stfName, String stlName, String stCourse, String stContact, String stBirthdate, String stGender, Long departmentId) {
+        this.stfName = stfName;
+        this.stlName = stlName;
+        this.stCourse = stCourse;
+        this.stContact = stContact;
+        this.stBirthdate = stBirthdate;
+        this.stGender = stGender;
         this.departmentId = departmentId;
-//        this.departmentName = departmentName;
-//        this.departmentAddress = departmentAddress;
-//        this.departmentCode = departmentCode;
     }
 }
