@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class Department implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "dp_id")
     private Long dpId;
 
     @Column(name = "dp_name")

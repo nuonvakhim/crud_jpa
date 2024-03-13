@@ -10,12 +10,14 @@ import practicejpa.domain.department.Department;
 @Setter
 @Getter
 public class Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
     private String courseName;
+
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "dp_id")
     private Department department;
 
 }

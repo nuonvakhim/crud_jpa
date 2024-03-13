@@ -1,5 +1,7 @@
 package practicejpa.payload.student;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,19 +12,20 @@ import practicejpa.payload.department.DepartmentResponse;
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class StudentResponse {
     private Long stuId;
 
-    private String stfName;
+    private String studentFirstName;
 
-    private String stlName;
+    private String studentLastName;
 
-    private String stCourse;
+    private String studentCourse;
 
-    private String stContact;
+    private String studentContact;
 
-    private String stBirthdate;
+    private String studentBirthdate;
 
-    private String stGender;
+    private String studentGender;
     private DepartmentResponse department;
 }

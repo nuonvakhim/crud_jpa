@@ -21,7 +21,7 @@ public class Instructor {
     private String instructorName;
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "dp_id")
     private Department department;
 //    public InstructorResponse toInstructorResponse() {
 //        return new InstructorResponse(instructorId, instructorName, department.departmentResponse());

@@ -15,7 +15,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "stu_id")
     private Long stuId;
 
     @Column(name = "stf_name")
@@ -37,7 +37,7 @@ public class Student {
     private String stGender;
 
     @ManyToOne(cascade = CascadeType.PERSIST , fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "dp_id")
     private Department department;
 
     public StudentResponse toStudentResponse() {

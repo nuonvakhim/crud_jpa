@@ -24,15 +24,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student createStudent(StudentRequest payload) {
 
-//        var de = Department.builder()
-//                .departmentId(payload.getDepartmentId())
-//                .departmentAddress(payload.getDepartmentAddress())
-//                .departmentName(payload.getDepartmentName())
-//                .departmentCode(payload.getDepartmentCode())
-//                .build();
 
         var stu = Student.builder()
                 .stfName(payload.getStfName())
+                .stlName(payload.getStlName())
+                .stCourse(payload.getStCourse())
+                .stContact(payload.getStContact())
+                .stBirthdate(payload.getStBirthdate())
+                .stGender(payload.getStGender())
                 .department(departmentRepository.findById(payload.getDepartmentId()).get())
                 .build();
 
