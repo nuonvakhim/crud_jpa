@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/department
+    username: postgres
+    password: vakhim
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8089
