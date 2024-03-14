@@ -23,9 +23,9 @@ public class Instructor {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "dp_id")
     private Department department;
-//    public InstructorResponse toInstructorResponse() {
-//        return new InstructorResponse(instructorId, instructorName, department.departmentResponse());
-//    }
+    public InstructorResponse toInstructorResponse() {
+        return new InstructorResponse(instructorId, instructorName, department.departmentResponse());
+    }
 
     @Builder
     public Instructor(Long instructorId, String instructorName, Department department) {

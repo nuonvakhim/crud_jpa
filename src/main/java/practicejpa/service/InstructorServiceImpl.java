@@ -26,10 +26,10 @@ public class InstructorServiceImpl implements InstructorService{
     @Override
     public List<InstructorResponse> getAll() {
        List<Instructor> instructors = repository.findAll();
-       return null;
-//               instructors.stream()
-//               .map(Instructor::toInstructorResponse)
-//               .collect(Collectors.toList());
+       return
+               instructors.stream()
+               .map(Instructor::toInstructorResponse)
+               .collect(Collectors.toList());
     }
 
     @Override
@@ -71,8 +71,7 @@ public class InstructorServiceImpl implements InstructorService{
 
     @Override
     public InstructorResponse getById(Long id) {
-        return null;
-//        repository.findById(id).orElseThrow(()-> new RuntimeException("ID not found")).toInstructorResponse();
+        return repository.findById(id).orElseThrow(()-> new RuntimeException("ID not found")).toInstructorResponse();
     }
 
 
